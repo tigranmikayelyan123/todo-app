@@ -21,7 +21,6 @@ function App() {
 					dispatch(onAdd(text));
 				}}
 			/>
-
 			<TodoList
 				onChange={(newTodo) => {
 					dispatch(onChecked(newTodo));
@@ -30,7 +29,6 @@ function App() {
 					dispatch(onDelete(todo));
 				}}
 			/>
-
 			<TodoFooter
 				onClearCompleted={() => {
 					dispatch(onClearCompleted());

@@ -1,8 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { fetchTodo } from './todoAPI';
 
 const initialState = {
 	todos: [],
 };
+export const addAsync = createAsyncThunk('todos/fetchTodo', async (text) => {
+	const response = await fetchTodo(text);
+	return response.data;
+});
 
 export const todosSlice = createSlice({
 	name: 'todos',
@@ -14,7 +19,6 @@ export const todosSlice = createSlice({
 				text: action.payload,
 				isCompleted: false,
 			});
-			return state;
 		},
 		onDelete: (state, action) => {
 			const newTodos = state.todos.filter(
@@ -36,11 +40,34 @@ export const todosSlice = createSlice({
 			state.todos = newTodos;
 		},
 	},
+	extraReducers: (builder) => {
+		builder
+			.addCase(addAsync.pending, (state, action) => {
+				// some logic
+			})
+			.addCase(addAsync.fulfilled, (state, action) => {
+				state.todos.push({
+					id: Math.random(),
+					text: action.payload,
+					isCompleted: false,
+				});
+			})
+			.addCase(addAsync.rejected, (state, action) => {
+				// some logic
+			});
+	},
 });
 
 export const { onAdd, onDelete, onChecked, onClearCompleted } =
 	todosSlice.actions;
 
 export const selectTodos = (state) => state.todos;
+
+export const addIf4TasksExist = (text) => (dispatch, getState) => {
+	const currentTodos = selectTodos(getState());
+	if (currentTodos.length >= 4) {
+		dispatch(onAdd(text));
+	}
+};
 
 export default todosSlice.reducer;
