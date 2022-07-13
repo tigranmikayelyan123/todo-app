@@ -1,0 +1,14 @@
+.footer {
+    display: flex;
+    margin-top: 10px;
+}
+
+.footer span {
+    margin-left: 3px;
+}
+
+
+div button {
+    margin-left: auto;
+    font-weight: 500;
+}

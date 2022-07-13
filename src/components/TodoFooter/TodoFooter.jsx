@@ -1,12 +1,13 @@
 import { useSelector } from 'react-redux';
-import { selectTodos } from '../features/todos/todosSlice';
+import { selectTodos } from '../../features/todos/todosSlice';
+import './TodoFooter.css';
 
 export function TodoFooter({ onClearCompleted }) {
 	const todos = useSelector(selectTodos);
 	const completedTasks = todos.filter((todo) => todo.isCompleted).length;
 
 	return (
-		<div>
+		<div className='footer'>
 			<span>
 				{completedTasks}/{todos.length}
 			</span>

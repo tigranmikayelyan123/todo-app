@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
-import { selectTodos } from '../features/todos/todosSlice';
-import { TodoItem } from './TodoItem';
+import { selectTodos } from '../../features/todos/todosSlice';
+import { TodoItem } from '../TodoItem/TodoItem';
+import './TodoList.css';
 
 export function TodoList({ onChange, onDelete }) {
 	const todos = useSelector(selectTodos);

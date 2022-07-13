@@ -43,7 +43,7 @@ export const todosSlice = createSlice({
 	extraReducers: (builder) => {
 		builder
 			.addCase(addAsync.pending, (state, action) => {
-				// some logic
+				// ...
 			})
 			.addCase(addAsync.fulfilled, (state, action) => {
 				state.todos.push({
@@ -53,7 +53,7 @@ export const todosSlice = createSlice({
 				});
 			})
 			.addCase(addAsync.rejected, (state, action) => {
-				// some logic
+				// ...
 			});
 	},
 });

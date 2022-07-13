@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import './App.css';
-import { TodoFooter } from './components/TodoFooter';
-import { TodoForm } from './components/TodoForm';
-import { TodoList } from './components/TodoList';
+import { TodoFooter } from './components/TodoFooter/TodoFooter';
+import { TodoForm } from './components/TodoForm/TodoForm';
+import { TodoList } from './components/TodoList/TodoList';
 import {
 	onAdd,
 	onDelete,

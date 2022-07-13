@@ -1,7 +1,9 @@
+import './TodoItem.css';
+
 export function TodoItem({ todo, onChange, onDelete }) {
 	return (
 		<div>
-			<label>
+			<label className='content'>
 				<input
 					type='checkbox'
 					checked={todo.isCompleted}
@@ -12,7 +14,7 @@ export function TodoItem({ todo, onChange, onDelete }) {
 						});
 					}}
 				></input>
-				{todo.text}
+				<span>{todo.text}</span>
 				<button
 					onClick={() => {
 						onDelete(todo);

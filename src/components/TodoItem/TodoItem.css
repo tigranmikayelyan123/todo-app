@@ -1,0 +1,12 @@
+.content {
+    display: flex; 
+    position: relative;
+    margin-bottom: 5px; 
+}
+
+label button {  
+    margin-left: auto;
+    background-color: white;
+    border: none;
+}
+
