@@ -22,7 +22,6 @@ export function TodoItem({ todo }) {
         <span>{todo.text}</span>
         <button
           onClick={() => {
-						console.log('here')
             dispatch(onDelete(todo));
           }}
         >

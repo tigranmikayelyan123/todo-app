@@ -1,8 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addAsync } from "../../features/todos/todosSlice";
-import { onAdd } from "./../../features/todos/todosSlice.js";
+import { addAsync, onAdd } from "../../features/todos/todosSlice";
 import "./TodoForm.css";
 
 export function TodoForm() {
