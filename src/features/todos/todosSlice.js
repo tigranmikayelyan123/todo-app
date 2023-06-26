@@ -63,11 +63,4 @@ export const { onAdd, onDelete, onChecked, onClearCompleted } =
 
 export const selectTodos = (state) => state.todos;
 
-export const addIf4TasksExist = (text) => (dispatch, getState) => {
-	const currentTodos = selectTodos(getState());
-	if (currentTodos.length >= 4) {
-		dispatch(onAdd(text));
-	}
-};
-
 export default todosSlice.reducer;

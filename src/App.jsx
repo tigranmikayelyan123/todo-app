@@ -1,41 +1,28 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import './App.css';
-import { TodoFooter } from './components/TodoFooter/TodoFooter';
-import { TodoForm } from './components/TodoForm/TodoForm';
-import { TodoList } from './components/TodoList/TodoList';
+/* eslint-disable prettier/prettier */
+import React from "react";
+import { useDispatch } from "react-redux";
+import "./App.css";
+import { TodoFooter } from "./components/TodoFooter/TodoFooter";
+import { TodoForm } from "./components/TodoForm/TodoForm";
+import { TodoList } from "./components/TodoList/TodoList";
 import {
-	onAdd,
-	onDelete,
-	onChecked,
-	onClearCompleted,
-} from './features/todos/todosSlice';
+  onClearCompleted,
+} from "./features/todos/todosSlice";
 
 function App() {
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-	return (
-		<div className='App'>
-			<TodoForm
-				onAdd={(text) => {
-					dispatch(onAdd(text));
-				}}
-			/>
-			<TodoList
-				onChange={(newTodo) => {
-					dispatch(onChecked(newTodo));
-				}}
-				onDelete={(todo) => {
-					dispatch(onDelete(todo));
-				}}
-			/>
-			<TodoFooter
-				onClearCompleted={() => {
-					dispatch(onClearCompleted());
-				}}
-			/>
-		</div>
-	);
+  return (
+    <div className="App">
+      <TodoForm />
+      <TodoList />
+      <TodoFooter
+        onClearCompleted={() => {
+          dispatch(onClearCompleted());
+        }}
+      />
+    </div>
+  );
 }
 
 export default App;

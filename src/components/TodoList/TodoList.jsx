@@ -1,9 +1,10 @@
+/* eslint-disable prettier/prettier */
 import { useSelector } from 'react-redux';
 import { selectTodos } from '../../features/todos/todosSlice';
 import { TodoItem } from '../TodoItem/TodoItem';
 import './TodoList.css';
 
-export function TodoList({ onChange, onDelete }) {
+export function TodoList() {
 	const todos = useSelector(selectTodos);
 
 	return (
@@ -13,8 +14,6 @@ export function TodoList({ onChange, onDelete }) {
 					<TodoItem
 						key={todo.id}
 						todo={todo}
-						onChange={onChange}
-						onDelete={onDelete}
 					/>
 				);
 			})}
